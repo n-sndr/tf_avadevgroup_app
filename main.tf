@@ -6,12 +6,12 @@ terraform {
       version = "3.25.0"
     }
   }
-  cloud {
-    organization = "avadevgroup"
-    workspaces {
-      name = "tf_avadevgroup_app_nonprd"
-    }
-  }
+  #cloud {
+  #  organization = "avadevgroup"
+  #  workspaces {
+  #    name = "tf_avadevgroup_app_nonprd"
+  #  }
+  # }
 }
 
 provider "azurerm" {
@@ -22,7 +22,7 @@ provider "azurerm" {
   client_secret = var.clientSecret
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "dev" {
   name     = var.RGName
   location = var.location
 }
