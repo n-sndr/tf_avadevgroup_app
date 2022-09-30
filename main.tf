@@ -41,5 +41,7 @@ resource "azurerm_windows_web_app" "dev" {
   location            = azurerm_service_plan.dev.location
   service_plan_id     = azurerm_service_plan.dev.id
 
-  site_config {}
+  site_config {
+    always_on         = false 
+  }
 }
