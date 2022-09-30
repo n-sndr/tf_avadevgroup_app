@@ -1,23 +1,23 @@
 variable "RGName" {
-  type = string
+  default = null
 }
 
 variable "location" {
-  type = string
+  default = null
 }
 
 variable "subscriptionId" {
-  type = string
+  default = null
 }
 
 variable "tenantId" {
-  type = string
+  default = null
 }
 
 variable "clientId" {
-  type = string
+  default = null
 }
 
 variable "clientSecret" {
-  type = string
+  default = null
 }
