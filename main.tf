@@ -6,6 +6,12 @@ terraform {
       version = "3.25.0"
     }
   }
+  cloud {
+    organization = "avadevgroup"
+    workspaces {
+      name = "tf_avadevgroup_app_nonprd"
+    }
+  }
 }
 
 provider "azurerm" {
@@ -19,4 +25,21 @@ provider "azurerm" {
 resource "azurerm_resource_group" "rg" {
   name     = var.RGName
   location = var.location
+}
+
+resource "azurerm_resource_group" "dev" {
+  name     = "api-rg-pro"
+  location = var.location
+}
+
+resource "azurerm_app_service_plan" "dev" {
+  name                = "ava-dev-group-asp"
+  location            = var.location
+  resource_group_name = var.RGName
+  kind                = "FunctionApp"
+
+  sku {
+    tier = "Dynamic"
+    size = "Y1"
+  }
 }
