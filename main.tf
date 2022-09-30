@@ -27,11 +27,6 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-resource "azurerm_resource_group" "dev" {
-  name     = "api-rg-pro"
-  location = var.location
-}
-
 resource "azurerm_app_service_plan" "dev" {
   name                = "ava-dev-group-asp"
   location            = var.location
