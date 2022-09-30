@@ -39,10 +39,9 @@ resource "azurerm_app_service_plan" "dev" {
   }
 }
 
-resource "azurerm_app_service" "example" {
+resource "azurerm_app_service" "dev" {
   name                = "ava-dev-group-site"
   location            = var.location
   resource_group_name = var.RGName
   app_service_plan_id = azurerm_app_service_plan.dev.id
-
 }
