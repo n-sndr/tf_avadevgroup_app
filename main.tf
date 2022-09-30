@@ -27,21 +27,19 @@ resource "azurerm_resource_group" "dev" {
   location = var.location
 }
 
-resource "azurerm_app_service_plan" "dev" {
+resource "azurerm_service_plan" "dev" {
   name                = "ava-dev-group-asp"
-  location            = var.location
-  resource_group_name = var.RGName
-  kind                = "FunctionApp"
-
-  sku {
-    tier = "Dynamic"
-    size = "Y1"
-  }
+  resource_group_name = azurerm_resource_group.dev.name
+  location            = azurerm_resource_group.dev.location
+  os_type             = "Windows"
+  sku_name            = "D1"
 }
 
-resource "azurerm_app_service" "dev" {
-  name                = "ava-dev-group-site"
-  location            = var.location
-  resource_group_name = var.RGName
-  app_service_plan_id = azurerm_app_service_plan.dev.id
+resource "azurerm_windows_web_app" "dev" {
+  name                = "ava-dev-group-web001"
+  resource_group_name = azurerm_resource_group.dev.name
+  location            = azurerm_service_plan.dev.location
+  service_plan_id     = azurerm_service_plan.dev.id
+
+  site_config {}
 }
