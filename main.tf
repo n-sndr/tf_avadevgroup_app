@@ -21,6 +21,6 @@ provider "azurerm" {
   client_id = var.clientId
 }
 
-module "webportal-dev" {
+module "dev" {
   source = "./modules/dev"
 }
