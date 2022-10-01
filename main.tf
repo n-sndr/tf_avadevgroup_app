@@ -23,4 +23,5 @@ provider "azurerm" {
 
 module "dev" {
   source = "./modules/dev"
+  location = var.location
 }
