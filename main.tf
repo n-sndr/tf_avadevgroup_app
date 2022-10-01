@@ -1,24 +1,12 @@
-terraform {
-  required_version = ">= 1.1.0"
-
-  required_providers {
-    azurerm = {
-      source = "hashicorp/azurerm"
-      version = "3.25.0"
-    }
-  }
-  
-  cloud {
-    organization = "avadevgroup"
-    workspaces {
-      name = "tf_avadevgroup_app_nonprd"
-    }
-  }
-}
-provider "azurerm" {
-  features {}
-}
-
+# terraform {
+#   required_version = ">= 1.1.0"
+#   cloud {
+#     organization = "avadevgroup"
+#     workspaces {
+#       name = "tf_avadevgroup_app_nonprd"
+#     }
+#   }
+# }
 module "dev" {
   source          = "./modules/dev"
   location        = var.location
