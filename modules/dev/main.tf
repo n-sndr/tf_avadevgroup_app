@@ -1,10 +1,7 @@
-provider "azurerm" {
-  features {}
-  subscription_id = var.subscriptionId
-  tenant_id = var.tenantId
-  client_id = var.clientId
-  client_secret =  var.clientSecret
-}
+# provider "azurerm" {
+#   features {}
+  
+# }
 
 resource "azurerm_resource_group" "dev" {
   name     = var.RGName
