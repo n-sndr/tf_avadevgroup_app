@@ -17,5 +17,4 @@ terraform {
 
 module "webportal-dev" {
   source = "./modules/dev"
-  location =  local.location
 }
