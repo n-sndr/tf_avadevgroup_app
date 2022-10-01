@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 module "dev" {
   source          = "./modules/dev"
   location        = var.location
